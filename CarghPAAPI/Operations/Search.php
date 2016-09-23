@@ -9,19 +9,172 @@ namespace CarghPAAPI\Operations;
  * A item search operation
  *
  * @see    http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html
+ * @see    http://docs.aws.amazon.com/AWSECommerceService/latest/DG/LocaleIT.html
  * @author Gaetano Carpinato <gaetanocarpinato@gmail.com>
   */
 class Search extends AbstractOperation
 {
+	private static $categories = [
+		'All'					=> ['ItemPage'],
+		'Apparel'				=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Grocery'				=> [
+									'Author', 'ItemPage', 'MaximumPrice', 'MinimumPrice',
+									'MinPercentageOff', 'Publisher', 'Sort', 'Title'
+								],
+		'MobileApps'			=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Automotive'			=> [
+									'Brand', 'ItemPage', 'Manufacturer',
+									'MaximumPrice', 'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Beauty'				=> [
+									'Brand', 'ItemPage', 'Manufacturer',
+									'MaximumPrice', 'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'GiftCards'				=> [
+									'Artist', 'MaximumPrice', 'MinimumPrice',
+									'MinPercentageOff'
+								],
+		'Music'					=> [
+									'Artist', 'ItemPage', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'OfficeProducts'		=> [
+									'Brand', 'ItemPage', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Kitchen'				=> [
+									'Author', 'Brand', 'ItemPage',
+									'Manufacturer', 'MaximumPrice', 'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'HealthPersonalCare'	=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Electronics'			=> [
+									'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Tools'					=> [
+							'Actor', 'Artist', 'AudienceRating', 'Author', 'Brand', 'Composer', 'Conductor',
+							'Director', 'ItemPage', 'Manufacturer', 'MaximumPrice', 'MinimumPrice', 'MinPercentageOff',
+							'Neighborhood', 'Orchestra', 'Power', 'Publisher', 'ReleaseDate', 'Sort', 'Title'
+						],
+		'DVD'					=> [
+									'Actor', 'AudienceRating', 'Director', 'ItemPage', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Publisher', 'Sort', 'Title'
+								],
+		'Garden'				=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Neighborhood', 'Sort', 'Title'
+								],
+		'Toys'					=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Neighborhood', 'Sort', 'Title'
+								],
+		'Jewelry'				=> [ 'ItemPage', 'MinPercentageOff', 'Sort', 'Title'],
+		'Lighting'				=> [
+									'Brand', 'ItemPage', 'MaximumPrice', 'MinimumPrice',
+									'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Industrial'			=> [
+									'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'PCHardware'			=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'KindleStore'			=> [
+									'Author', 'ItemPage', 'MaximumPrice',  'MinimumPrice',
+									'MinPercentageOff', 'Publisher', 'Sort', 'Title'
+								],
+		'Books'					=> [
+									'Author', 'ItemPage', 'MaximumPrice', 'MinimumPrice',
+									'MinPercentageOff', 'Power', 'Publisher', 'Sort', 'Title'
+								],
+		'ForeignBooks'			=> [
+									'Author', 'ItemPage', 'MaximumPrice',  'MinimumPrice',
+									'MinPercentageOff', 'Power', 'Publisher', 'Sort', 'Title'
+								],
+		'MP3Downloads'			=> [
+									'ItemPage', 'MaximumPrice', 'MinimumPrice',
+									'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Watches'				=> ['ItemPage', 'MinPercentageOff', 'Sort', 'Title'],
+		'Baby'					=> [
+									'Author', 'Brand', 'ItemPage',  'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Shoes'					=> [
+									'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Software'				=> [
+									'Author', 'Brand', 'ItemPage',  'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'SportingGoods'			=> ['ItemPage', 'MinPercentageOff', 'Sort', 'Title'],
+		'MusicalInstruments'	=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'Luggage'				=> [
+									'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								],
+		'VideoGames'			=> [
+									'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
+									'MinimumPrice', 'MinPercentageOff', 'Sort', 'Title'
+								]
+	];
+
+	private static $general_parameters = [
+		'Availability',
+		'BrowseNode',
+		'Keywords',
+		'ResponseGroup',
+		'VariationPage'
+	];
+
+	private static $cat_parameters = [
+		'Actor',
+		'Artist',
+		'AudienceRating',
+		'Author',
+		'Brand',
+		'Composer',
+		'Conductor',
+		'Director',
+		'ItemPage',
+		'Manufacturer',
+		'MaximumPrice',
+		'MerchantId',
+		'MinimumPrice',
+		'MinPercentageOff',
+		'Neighborhood',
+		'Orchestra',
+		'Power',
+		'Publisher',
+		'ReleaseDate',
+		'Sort',
+		'Title'
+	];
+
 	/**
 	 * Initialize instance
 	 */
-	public function __construct()
+	public function __construct($category = 'All')
 	{
 		// Defaults parameter
 		$this
-			->setResponseGroup(['Large'])
-			->setSort('relevancerank'); // Amazon default Sort
+			->setCategory($category)
+			->setResponseGroup(['Large']);
 	}
 
 	/**
@@ -42,6 +195,37 @@ class Search extends AbstractOperation
 		return $this->getSingleOperationParameter('SearchIndex');
 	}
 
+
+	/**
+	 * Return the amazon valid parameters
+	 *
+	 * @return string
+	 */
+	public function getValidParameters()
+	{
+		return array_merge(Search::$general_parameters, Search::$categories[$this->getCategory()]);
+	}
+
+	/**
+	 * Validate the amazon category
+	 *
+	 * @param string $category
+	 *
+	 * @return bool
+	 */
+	private function validateCategory($category)
+	{
+		if (in_array($category, array_keys(Search::$categories)))
+			return true;
+
+		throw new \InvalidArgumentException(sprintf(
+			"Invalid category '%s' passed. Valid categories are: '%s'",
+			$category,
+			implode(', ', array_keys(Search::$categories))
+		));
+		return false;
+	}
+
 	/**
 	 * Sets the amazon category
 	 *
@@ -49,9 +233,9 @@ class Search extends AbstractOperation
 	 *
 	 * @return \CarghPAAPI\Operations\Search
 	 */
-	public function setCategory($category)
+	private function setCategory($category)
 	{
-		$this->parameters['SearchIndex'] = $category;
+		$this->parameters['SearchIndex'] = ($this->validateCategory($category))? $category : 'All';
 		return $this;
 	}
 
@@ -247,5 +431,44 @@ class Search extends AbstractOperation
 				$price
 			));
 		}
+	}
+
+	/**
+	 * Validates the given parameter.
+	 *
+	 * @param integer $parameter
+	 */
+	private function invalidParameter($parameter)
+	{
+		$exlude_parameters = [
+			'SearchIndex',
+			'Category'
+		];
+
+		$exlude_parameters = array_merge(
+			$exlude_parameters,
+			array_diff(Search::$cat_parameters, Search::$categories[$this->getCategory()])
+		);
+
+		if(in_array($parameter, $exlude_parameters))
+			return true;
+		return false;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function __call($method, $parameter)
+	{
+		if (substr($method, 0, 3) === 'set')
+		{
+			if($this->invalidParameter(substr($method, 3)))
+				throw new \BadFunctionCallException(sprintf(
+					'The parameter "%s" is invalid for "%s" category!',
+					substr($method, 3),
+					$this->getCategory()
+			));
+		}
+		return parent::__call($method, $parameter);
 	}
 }

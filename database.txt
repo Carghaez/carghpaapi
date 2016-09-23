@@ -1,0 +1,224 @@
+/*----------------------------------
+# SEARCH
+----------------------------------*/
+Items
+	ASIN [es: "B00RD3X6IU"]
+	ParentASIN [es: "B00UXMFDLQ"] [cannot be purchased]
+	SalesRank
+
+	SmallImage
+		URL
+		Height (Units="pixels")
+		Width (Units="pixels")
+	MediumImage
+		...
+	LargeImage
+		...
+
+	ImageSets
+		ImageSet (Category="variant"/"primary")
+			SwatchImage
+				URL
+				Height (Units="pixels")
+				Width (Units="pixels")
+			SmallImage
+				...
+			ThumbnailImage
+				...
+			TinyImage
+				...
+			MediumImage
+				...
+			LargeImage
+				...
+			HiResImage
+				...
+		...
+
+	ItemAttributes
+		Binding [es: "Elettronica"]
+		Brand [es: "HTC"]
+		Color [es: "Grigio"]
+		EAN [es: "4718487665402"]
+
+		Feature
+		... [xN]
+
+		IsAdultProduct [es: "0"]
+		ItemDimensions
+			Height (Units="Centesimi pollici")
+			Length (Units="Centesimi pollici")
+			Weight (Units="Centesimi libbre")
+			Width (Units="Centesimi pollici")
+
+		Label
+		LegalDisclaimer
+		ListPrice
+			Amount [es: 24990]
+			CurrencyCode [es: EUR]
+			FormattedPrice [es: EUR 249,90]
+
+		Manufacturer
+		Model
+		MPN
+		NumberOfItems
+		OperatingSystem
+		PackageDimensions
+			Height (Units="Centesimi pollici")
+			Length (Units="Centesimi pollici")
+			Weight (Units="Centesimi libbre")
+			Width (Units="Centesimi pollici")
+
+		PackageQuantity
+		PartNumber [same as MPN]
+		ProductGroup
+		ProductTypeName
+		Publisher
+		Studio
+		Title
+		Warranty [es: "2 anni, preso e sostituito"]
+
+	OfferSummary
+		LowestNewPrice
+			Amount [es: 24990]
+			CurrencyCode [es: EUR]
+			FormattedPrice [es: EUR 249,90]
+		LowestUsedPrice
+			Amount [es: 24990]
+			CurrencyCode [es: EUR]
+			FormattedPrice [es: EUR 249,90]
+		LowestRefurbishedPrice
+			Amount [es: 24990]
+			CurrencyCode [es: EUR]
+			FormattedPrice [es: EUR 249,90]
+		TotalNew
+		TotalUsed
+		TotalCollectible
+		TotalRefurbished
+
+	Offers
+		TotalOffers [es: "1"]
+		TotalOfferPages [es: "1"]
+		Offer
+			OfferAttributes
+				Condition [es: "New"]
+			OfferListing
+				OfferListingId [es: "NVdgEs%2FUSm8..." -> 133 chars]
+				Price
+					Amount [es: 24990]
+					CurrencyCode [es: EUR]
+					FormattedPrice [es: EUR 249,90]
+				AmountSaved
+					Amount [es: 24990]
+					CurrencyCode [es: EUR]
+					FormattedPrice [es: EUR 249,90]
+				PercentageSaved [es: "36"]
+				Availability [es: "Generalmente spedito in 24 ore"]
+				AvailabilityAttributes
+					AvailabilityType [es: "now"]
+					MinimumHours [es: "0"]
+					MaximumHours [es: "0"]
+				IsEligibleForSuperSaverShipping [es: "1"]
+				IsEligibleForPrime [es: "1"]
+
+	EditorialReviews
+		EditorialReview
+			Source [es: "Product Description"]
+			Content [es: text]
+			IsLinkSuppressed [es: "0"]
+
+	SimilarProducts
+		SimilarProduct
+			ASIN
+			Title
+		... [x10]
+
+	BrowseNodes
+		BrowseNode
+			BrowseNodeId [es: "473246031"]
+			Name [es: "Cellulari e Smartphone"]
+			Ancestors
+				BrowseNode
+					BrowseNodeId  [es: "1497228031"]
+					Name [es: "Cellulari e accessori"]
+					Ancestors
+						BrowseNode
+							BrowseNodeId [es: "412610031"]
+							Name [es: "Categorie"]
+							IsCategoryRoot [es: "1"]
+							Ancestors
+								BrowseNode
+									BrowseNodeId [es: "412609031"]
+									Name [es: "Elettronica"]
+
+/*----------------------------------
+# Lookup
+----------------------------------*/
+
+
+
+/*----------------------------------
+# BrowseNodeLookup
+----------------------------------*/
+
+<BrowseNode>
+    <BrowseNodeId>412610031</BrowseNodeId>
+    <Name>Categorie</Name>
+    <IsCategoryRoot>1</IsCategoryRoot>
+    <Children>
+        <BrowseNode>
+            <BrowseNodeId>1463299031</BrowseNodeId>
+            <Name>Accessori</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>473287031</BrowseNodeId>
+            <Name>Audio e video portatile</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>1497228031</BrowseNodeId>
+            <Name>Cellulari e accessori</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>1462698031</BrowseNodeId>
+            <Name>eBook Reader e accessori</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>1465649031</BrowseNodeId>
+            <Name>Elettronica per veicoli</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>435505031</BrowseNodeId>
+            <Name>Foto e videocamere</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>435508031</BrowseNodeId>
+            <Name>GPS e accessori</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>473357031</BrowseNodeId>
+            <Name>Home Audio e Hi-Fi</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>435504031</BrowseNodeId>
+            <Name>Home Cinema, TV e video</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>473601031</BrowseNodeId>
+            <Name>Informatica</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>1463267031</BrowseNodeId>
+            <Name>Radiocomunicazione</Name>
+        </BrowseNode>
+        <BrowseNode>
+            <BrowseNodeId>1497227031</BrowseNodeId>
+            <Name>Telefonia fissa e accessori</Name>
+        </BrowseNode>
+    </Children>
+    <Ancestors>
+        <BrowseNode>
+            <BrowseNodeId>412609031</BrowseNodeId>
+            <Name>Elettronica</Name>
+        </BrowseNode>
+    </Ancestors>
+</BrowseNode>

@@ -1,0 +1,83 @@
+####################################################
+# SEARCH Locale Information for the IT Marketplace #
+####################################################
+
+Tutte le categorie					| All					|
+Abbigliamento						| Apparel				| 2844434031
+Alimentari e cura della casa		| Grocery				| 6198093031
+App e Giochi						| MobileApps			| 1661661031
+Auto e Moto							| Automotive			| 1571281031
+Bellezza							| Beauty				| 6198083031
+Buoni Regalo						| GiftCards				| 3557018031
+CD e Vinili							| Music					| 412601031
+Cancelleria e prodotti per ufficio	| OfficeProducts		| 3606311031
+Casa e cucina						| Kitchen				| 524016031
+Cura della Persona					| HealthPersonalCare	| 1571290031
+Elettronica							| Electronics			| 412610031
+Fai da te							| Tools					| 2454161031
+Film e TV							| DVD					| 412607031
+Giardino e giardinaggio				| Garden				| 635017031
+Giochi e giocattoli					| Toys					| 523998031
+Gioielli							| Jewelry				| 2454164031
+Illuminazione						| Lighting				| 1571293031
+Industria e Scienza					| Industrial			| 5866069031
+Informatica							| PCHardware			| 425917031
+Kindle Store						| KindleStore			| 1331141031
+Libri								| Books					| 411664031
+Libri in altre lingue				| ForeignBooks			| 433843031
+Musica Digitale						| MP3Downloads			| 1748204031
+Orologi								| Watches				| 524010031
+Prima infanzia						| Baby					| 1571287031
+Scarpe e borse						| Shoes					| 524007031
+Software							| Software				| 412613031
+Sport e tempo libero				| SportingGoods			| 524013031
+Strumenti musicali e DJ				| MusicalInstruments	| 3628630031
+Valigeria							| Luggage				| 2454149031
+Videogiochi							| VideoGames			| 412604031
+
+/*----------------------------
+# ItemSearch parameters
+----------------------------*/
+
+"Actor, Artist, AudienceRating, Author, Availability, Brand, Composer, Conductor, Director, ItemPage, Keywords, Manufacturer, MaximumPrice, MerchantId, MinimumPrice, MinPercentageOff, Neighborhood, Orchestra, Power, Publisher, ReleaseDate, Sort, Title"
+
+
+/*-----------------------------------
+# ItemSearch parameters Data Usable
+------------------------------------*/
+
+Actor ("Tools, DVD")
+
+Artist ("GiftCards, Music, Tools")
+
+AudienceRating ("Tools, DVD")
+
+Author ("Apparel, Grocery, MobileApps, Kitchen, HealthPersonalCare, Tools, Garden, PCHardware, KindleStore, Books, ForeignBooks, Baby, Software, MusicalInstruments, VideoGames")
+
+Availability (TUTTI)
+
+Brand ("Apparel, MobileApps, Automotive, Beauty, OfficeProducts, Kitchen, HealthPersonalCare, Tools, Garden, Lighting, PCHardware, Baby, Shoes, Software, MusicalInstruments, Luggage, VideoGames")
+
+Composer ("Tools")
+
+Conductor ("Tools")
+
+Director ("Tools, DVD")
+
+ItemPage (TUTTI TRANNE "GiftCards")
+
+Keywords (TUTTI)
+
+Manufacturer ("Apparel, MobileApps, Automotive, Beauty, Kitchen, HealthPersonalCare, Electronics, Tools, Garden, Industrial, PCHardware, Baby, Shoes, Software, MusicalInstruments, Luggage, Videogames")
+
+MaximumPrice (TUTTI TRANNE "All, Toys, Jewelry, Watches, SportingGoods")
+MerchantId (TUTTI)
+MinimumPrice (TUTTI TRANNE "All, Toys, Jewelry, Watches, SportingGoods")
+MinPercentageOff (TUTTI TRANNE "All")
+Neighborhood ("Tools, Garden")
+Orchestra ("Tools")
+Power ("Tools, Books, ForeignBooks")
+Publisher ("Grocery, Tools, DVD, KindleStore, Books, ForeignBooks")
+ReleaseDate ("Tools")
+Sort (TUTTI TRANNE "All, GiftCards")
+Title (TUTTI TRANNE "All, GiftCards")
