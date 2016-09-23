@@ -154,13 +154,12 @@ Items
 /*----------------------------------
 # Lookup
 ----------------------------------*/
-
+Come Search ma utile per le variation passando ParentASIN, vengono restituiti Variations, VariationDimensions, VariationAttributes
 
 
 /*----------------------------------
 # BrowseNodeLookup
 ----------------------------------*/
-
 <BrowseNode>
     <BrowseNodeId>412610031</BrowseNodeId>
     <Name>Categorie</Name>
