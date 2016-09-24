@@ -7,12 +7,12 @@ namespace CarghPAAPI\Operations;
 
 interface OperationInterface
 {
-	/**
-	 * Gets the name of the operation
-	 *
-	 * @see    http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_OperationListAlphabetical.html
-	 *
-	 * @return string
-	 */
-	public function getName();
+    /**
+     * Gets the name of the operation
+     *
+     * @see    http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_OperationListAlphabetical.html
+     *
+     * @return string
+     */
+    public function getName();
 }

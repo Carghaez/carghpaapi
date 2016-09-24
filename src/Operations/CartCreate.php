@@ -13,30 +13,30 @@ namespace CarghPAAPI\Operations;
  */
 class CartCreate extends AbstractOperation
 {
-	private $itemCounter = 1;
+    private $itemCounter = 1;
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getName()
-	{
-		return 'CartCreate';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'CartCreate';
+    }
 
-	/**
-	 * Adds an item to the Cart
-	 *
-	 * @param string  $id       The ASIN or OfferListingId Number of the item
-	 * @param integer $quantity How much you want to add
-	 * @param bool    $byAsin   If False will use OfferListingId insted of ASIN
-	 */
-	public function addItem($id, $quantity, $byAsin = true)
-	{
-		$itemIdentifier = ($byAsin) ? '.ASIN' : '.OfferListingId';
+    /**
+     * Adds an item to the Cart
+     *
+     * @param string  $id       The ASIN or OfferListingId Number of the item
+     * @param integer $quantity How much you want to add
+     * @param bool    $byAsin   If False will use OfferListingId insted of ASIN
+     */
+    public function addItem($id, $quantity, $byAsin = true)
+    {
+        $itemIdentifier = ($byAsin) ? '.ASIN' : '.OfferListingId';
 
-		$this->parameters['Item.' . $this->itemCounter . $itemIdentifier] = $id;
-		$this->parameters['Item.' . $this->itemCounter . '.Quantity'] = $quantity;
+        $this->parameters['Item.' . $this->itemCounter . $itemIdentifier] = $id;
+        $this->parameters['Item.' . $this->itemCounter . '.Quantity'] = $quantity;
 
-		$this->itemCounter++;
-	}
+        $this->itemCounter++;
+    }
 }

@@ -5,14 +5,14 @@ use CarghPAAPI\Operations;
 
 $search1 = new Operations\Search();
 $search1
-	->setCategory('DVD')
-	->setActor('Bruce Willis');
+    ->setCategory('DVD')
+    ->setActor('Bruce Willis');
 
 $search2 = new Operations\Search();
 $search2
-	->setCategory('DVD')
-	->setActor('Arnold Schwarzenegger')
-	->setKeywords('Terminator');
+    ->setCategory('DVD')
+    ->setActor('Arnold Schwarzenegger')
+    ->setKeywords('Terminator');
 
 $batch = new Operations\Batch();
 $batch->addOperation($search1);

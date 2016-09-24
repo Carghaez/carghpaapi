@@ -5,8 +5,8 @@ use CarghPAAPI\Operations;
 
 $search = new Operations\Search('Electronics');
 $search
-	->setKeywords('htc')
-	->setSort('relevancerank'); // Amazon default Sort
+    ->setKeywords('htc')
+    ->setSort('relevancerank'); // Amazon default Sort
 
 $xmlResponse = $CarghPAAPI->runOperation($search);
 

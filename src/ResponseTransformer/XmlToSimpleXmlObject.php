@@ -12,12 +12,12 @@ namespace CarghPAAPI\ResponseTransformer;
  */
 class XmlToSimpleXmlObject implements ResponseTransformerInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function transform($response)
-	{
-		$simpleXML = simplexml_load_string($response);
-		return $simpleXML;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function transform($response)
+    {
+        $simpleXML = simplexml_load_string($response);
+        return $simpleXML;
+    }
 }

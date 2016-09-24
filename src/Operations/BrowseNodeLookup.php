@@ -13,34 +13,34 @@ namespace CarghPAAPI\Operations;
  */
 class BrowseNodeLookup extends AbstractOperation
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getName()
-	{
-		return 'BrowseNodeLookup';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'BrowseNodeLookup';
+    }
 
-	/**
-	 * Returns the nodeid
-	 *
-	 * @return string
-	 */
-	public function getNodeId()
-	{
-		return $this->getSingleOperationParameter('BrowseNodeId');
-	}
+    /**
+     * Returns the nodeid
+     *
+     * @return string
+     */
+    public function getNodeId()
+    {
+        return $this->getSingleOperationParameter('BrowseNodeId');
+    }
 
-	/**
-	 * Sets the nodeid in which should be looked up
-	 *
-	 * @param string $nodeId
-	 *
-	 * @return \CarghPAAPI\Operations\BrowseNodeLookup
-	 */
-	public function setNodeId($nodeId)
-	{
-		$this->parameters['BrowseNodeId'] = $nodeId;
-		return $this;
-	}
+    /**
+     * Sets the nodeid in which should be looked up
+     *
+     * @param string $nodeId
+     *
+     * @return \CarghPAAPI\Operations\BrowseNodeLookup
+     */
+    public function setNodeId($nodeId)
+    {
+        $this->parameters['BrowseNodeId'] = $nodeId;
+        return $this;
+    }
 }

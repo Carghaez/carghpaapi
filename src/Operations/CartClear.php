@@ -13,51 +13,51 @@ namespace CarghPAAPI\Operations;
  */
 class CartClear extends AbstractOperation
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getName()
-	{
-		return 'CartClear';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'CartClear';
+    }
 
-	/**
-	 * Returns the cart id
-	 *
-	 * @return string
-	 */
-	public function getCartId()
-	{
-		return $this->getSingleOperationParameter('CartId');
-	}
+    /**
+     * Returns the cart id
+     *
+     * @return string
+     */
+    public function getCartId()
+    {
+        return $this->getSingleOperationParameter('CartId');
+    }
 
-	/**
-	 * Sets the cart id
-	 *
-	 * @param string $cartId
-	 */
-	public function setCartId($cartId)
-	{
-		$this->parameters['CartId'] = $cartId;
-	}
+    /**
+     * Sets the cart id
+     *
+     * @param string $cartId
+     */
+    public function setCartId($cartId)
+    {
+        $this->parameters['CartId'] = $cartId;
+    }
 
-	/**
-	 * Returns the HMAC
-	 *
-	 * @return mixed
-	 */
-	public function getHMAC()
-	{
-		return $this->getSingleOperationParameter('HMAC');
-	}
+    /**
+     * Returns the HMAC
+     *
+     * @return mixed
+     */
+    public function getHMAC()
+    {
+        return $this->getSingleOperationParameter('HMAC');
+    }
 
-	/**
-	 * Sets the HMAC
-	 *
-	 * @param string $HMAC
-	 */
-	public function setHMAC($HMAC)
-	{
-		$this->parameters['HMAC'] = $HMAC;
-	}
+    /**
+     * Sets the HMAC
+     *
+     * @param string $HMAC
+     */
+    public function setHMAC($HMAC)
+    {
+        $this->parameters['HMAC'] = $HMAC;
+    }
 }

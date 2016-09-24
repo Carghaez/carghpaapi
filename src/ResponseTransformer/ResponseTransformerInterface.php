@@ -7,10 +7,10 @@ namespace CarghPAAPI\ResponseTransformer;
 
 interface ResponseTransformerInterface
 {
-	/**
-	 * Transforms the response of the request
-	 *
-	 * @param mixed $response
-	 */
-	public function transform($response);
+    /**
+     * Transforms the response of the request
+     *
+     * @param mixed $response
+     */
+    public function transform($response);
 }

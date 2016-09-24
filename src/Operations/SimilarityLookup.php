@@ -13,35 +13,35 @@ namespace CarghPAAPI\Operations;
  */
 class SimilarityLookup extends AbstractOperation
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getName()
-	{
-		return 'SimilarityLookup';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'SimilarityLookup';
+    }
 
-	/**
-	 * Returns the itemid which has to be looked up
-	 *
-	 * @return string
-	 */
-	public function getItemId()
-	{
-		return $this->getSingleOperationParameter('ItemId');
-	}
+    /**
+     * Returns the itemid which has to be looked up
+     *
+     * @return string
+     */
+    public function getItemId()
+    {
+        return $this->getSingleOperationParameter('ItemId');
+    }
 
-	/**
-	 * Sets the itemid which has to be looked up
-	 * Basicly it is an amazon asin
-	 *
-	 * @param string $itemId
-	 *
-	 * @return \CarghPAAPI\Operations\SimilarityLookup
-	 */
-	public function setItemId($itemId)
-	{
-		$this->parameters['ItemId'] = $itemId;
-		return $this;
-	}
+    /**
+     * Sets the itemid which has to be looked up
+     * Basicly it is an amazon asin
+     *
+     * @param string $itemId
+     *
+     * @return \CarghPAAPI\Operations\SimilarityLookup
+     */
+    public function setItemId($itemId)
+    {
+        $this->parameters['ItemId'] = $itemId;
+        return $this;
+    }
 }

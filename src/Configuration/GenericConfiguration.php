@@ -15,181 +15,181 @@ use CarghPAAPI\ResponseTransformer\ResponseTransformerInterface;
  */
 class GenericConfiguration implements ConfigurationInterface
 {
-	/**
-	 * The country
-	 *
-	 * @var string
-	 */
-	protected $country;
+    /**
+     * The country
+     *
+     * @var string
+     */
+    protected $country;
 
-	/**
-	 * The accesskey
-	 *
-	 * @var string
-	 */
-	protected $accessKey;
+    /**
+     * The accesskey
+     *
+     * @var string
+     */
+    protected $accessKey;
 
-	/**
-	 * The string
-	 *
-	 * @var string
-	 */
-	protected $secretKey;
+    /**
+     * The string
+     *
+     * @var string
+     */
+    protected $secretKey;
 
-	/**
-	 * The associate Tag
-	 *
-	 * @var string
-	 */
-	protected $associateTag;
+    /**
+     * The associate Tag
+     *
+     * @var string
+     */
+    protected $associateTag;
 
-	/**
-	 * The requestclass
-	 * By default its set to the provided restful request
-	 *
-	 * @var RequestInterface
-	 */
-	protected $request;
+    /**
+     * The requestclass
+     * By default its set to the provided restful request
+     *
+     * @var RequestInterface
+     */
+    protected $request;
 
-	/**
-	 * The responsetransformerclass
-	 * By default its set to null which means that no transformer will be applied
-	 *
-	 * @var ResponseTransformerInterface
-	 */
-	protected $responseTransformer;
+    /**
+     * The responsetransformerclass
+     * By default its set to null which means that no transformer will be applied
+     *
+     * @var ResponseTransformerInterface
+     */
+    protected $responseTransformer;
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getCountry()
-	{
-		return $this->country;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
 
-	/**
-	 * Sets and validates the country
-	 *
-	 * @param string $country
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setCountry($country)
-	{
-		if (!Country::isValidCountry($country))
-		{
-			throw new \InvalidArgumentException(sprintf(
-					"Invalid Country-Code: %s! Possible Country-Codes: %s",
-					$country,
-					implode(', ', Country::getCountries())
-			));
-		}
-		$this->country = strtolower($country);
-		return $this;
-	}
+    /**
+     * Sets and validates the country
+     *
+     * @param string $country
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setCountry($country)
+    {
+        if (!Country::isValidCountry($country))
+        {
+            throw new \InvalidArgumentException(sprintf(
+                    "Invalid Country-Code: %s! Possible Country-Codes: %s",
+                    $country,
+                    implode(', ', Country::getCountries())
+            ));
+        }
+        $this->country = strtolower($country);
+        return $this;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getAccessKey()
-	{
-		return $this->accessKey;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getAccessKey()
+    {
+        return $this->accessKey;
+    }
 
-	/**
-	 * Sets the accesskey
-	 *
-	 * @param string $accessKey
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setAccessKey($accessKey)
-	{
-		$this->accessKey = $accessKey;
-		return $this;
-	}
+    /**
+     * Sets the accesskey
+     *
+     * @param string $accessKey
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setAccessKey($accessKey)
+    {
+        $this->accessKey = $accessKey;
+        return $this;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getSecretKey()
-	{
-		return $this->secretKey;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getSecretKey()
+    {
+        return $this->secretKey;
+    }
 
-	/**
-	 * Sets the secretkey
-	 *
-	 * @param string $secretKey
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setSecretKey($secretKey)
-	{
-		$this->secretKey = $secretKey;
-		return $this;
-	}
+    /**
+     * Sets the secretkey
+     *
+     * @param string $secretKey
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setSecretKey($secretKey)
+    {
+        $this->secretKey = $secretKey;
+        return $this;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getAssociateTag()
-	{
-		return $this->associateTag;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getAssociateTag()
+    {
+        return $this->associateTag;
+    }
 
-	/**
-	 * Sets the associatetag
-	 *
-	 * @param string $associateTag
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setAssociateTag($associateTag)
-	{
-		$this->associateTag = $associateTag;
-		return $this;
-	}
+    /**
+     * Sets the associatetag
+     *
+     * @param string $associateTag
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setAssociateTag($associateTag)
+    {
+        $this->associateTag = $associateTag;
+        return $this;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getRequest()
-	{
-		return $this->request;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
 
-	/**
-	 * Sets the Request.
-	 *
-	 * @param RequestInterface $request
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setRequest(RequestInterface $request)
-	{
-		$this->request = $request;
-		return $this;
-	}
+    /**
+     * Sets the Request.
+     *
+     * @param RequestInterface $request
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setRequest(RequestInterface $request)
+    {
+        $this->request = $request;
+        return $this;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getResponseTransformer()
-	{
-		return $this->responseTransformer;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getResponseTransformer()
+    {
+        return $this->responseTransformer;
+    }
 
-	/**
-	 * Sets the ResponseTransformer
-	 *
-	 * @param ResponseTransformerInterface $responseTransformer
-	 *
-	 * @return \CarghPAAPI\Configuration\GenericConfiguration
-	 */
-	public function setResponseTransformer(ResponseTransformerInterface $responseTransformer)
-	{
-		$this->responseTransformer = $responseTransformer;
-		return $this;
-	}
+    /**
+     * Sets the ResponseTransformer
+     *
+     * @param ResponseTransformerInterface $responseTransformer
+     *
+     * @return \CarghPAAPI\Configuration\GenericConfiguration
+     */
+    public function setResponseTransformer(ResponseTransformerInterface $responseTransformer)
+    {
+        $this->responseTransformer = $responseTransformer;
+        return $this;
+    }
 }

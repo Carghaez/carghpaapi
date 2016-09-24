@@ -12,14 +12,14 @@ namespace CarghPAAPI\ResponseTransformer;
  */
 class XmlToDomDocument implements ResponseTransformerInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function transform($response)
-	{
-		$document = new \DOMDocument('1.0', 'UTF-8');
-		$document->loadXML($response);
-		header("content-type: application/xml; charset=ISO-8859-15");
-		return $document;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function transform($response)
+    {
+        $document = new \DOMDocument('1.0', 'UTF-8');
+        $document->loadXML($response);
+        header("content-type: application/xml; charset=ISO-8859-15");
+        return $document;
+    }
 }

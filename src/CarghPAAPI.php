@@ -25,49 +25,49 @@ use CarghPAAPI\Operations\OperationInterface;
  */
 class CarghPAAPI
 {
-	const VERSION = "1.0.0-DEV";
+    const VERSION = "1.0.0-DEV";
 
-	/**
-	 * Configuration.
-	 *
-	 * @var ConfigurationInterface
-	 */
-	protected $configuration;
+    /**
+     * Configuration.
+     *
+     * @var ConfigurationInterface
+     */
+    protected $configuration;
 
-	/**
-	 * @param ConfigurationInterface $configuration
-	 */
-	public function __construct(ConfigurationInterface $configuration)
-	{
-		$this->configuration = $configuration;
-	}
+    /**
+     * @param ConfigurationInterface $configuration
+     */
+    public function __construct(ConfigurationInterface $configuration)
+    {
+        $this->configuration = $configuration;
+    }
 
-	/**
-	 * Runs the given operation.
-	 *
-	 * @param OperationInterface $operation The operationobject
-	 *
-	 * @return mixed
-	 */
-	public function runOperation(OperationInterface $operation)
-	{
-		$request  = $this->configuration->getRequest();
-		$response = $request->perform($operation, $this->configuration);
-		return $this->applyResponseTransformer($response);
-	}
+    /**
+     * Runs the given operation.
+     *
+     * @param OperationInterface $operation The operationobject
+     *
+     * @return mixed
+     */
+    public function runOperation(OperationInterface $operation)
+    {
+        $request  = $this->configuration->getRequest();
+        $response = $request->perform($operation, $this->configuration);
+        return $this->applyResponseTransformer($response);
+    }
 
-	/**
-	 * Applies a responsetransformer.
-	 *
-	 * @param mixed $response The response of the request
-	 *
-	 * @return mixed
-	 */
-	protected function applyResponseTransformer($response)
-	{
-		if (null === $responseTransformer = $this->configuration->getResponseTransformer())
-			return $response;
+    /**
+     * Applies a responsetransformer.
+     *
+     * @param mixed $response The response of the request
+     *
+     * @return mixed
+     */
+    protected function applyResponseTransformer($response)
+    {
+        if (null === $responseTransformer = $this->configuration->getResponseTransformer())
+            return $response;
 
-		return $responseTransformer->transform($response);
-	}
+        return $responseTransformer->transform($response);
+    }
 }

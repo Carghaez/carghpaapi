@@ -12,34 +12,34 @@ namespace CarghPAAPI\ResponseTransformer;
  */
 class Xslt implements ResponseTransformerInterface
 {
-	/**
-	 * XSLTProcessor object
-	 *
-	 * @var \XSLTProcessor
-	 */
-	protected $xsl;
+    /**
+     * XSLTProcessor object
+     *
+     * @var \XSLTProcessor
+     */
+    protected $xsl;
 
-	/**
-	 * Constructor
-	 *
-	 * @param string $xslt
-	 */
-	public function __construct($xslt)
-	{
-		$xsl = new \XSLTProcessor();
-		$xsldoc = new \DOMDocument();
-		$xsldoc->loadXML($xslt);
-		$xsl->importStyleSheet($xsldoc);
-		$this->xsl = $xsl;
-	}
+    /**
+     * Constructor
+     *
+     * @param string $xslt
+     */
+    public function __construct($xslt)
+    {
+        $xsl = new \XSLTProcessor();
+        $xsldoc = new \DOMDocument();
+        $xsldoc->loadXML($xslt);
+        $xsl->importStyleSheet($xsldoc);
+        $this->xsl = $xsl;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function transform($response)
-	{
-		$document = new \DOMDocument('1.0', 'UTF-8');
-		$document->loadXML($response);
-		return $this->xsl->transformToXml($document);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function transform($response)
+    {
+        $document = new \DOMDocument('1.0', 'UTF-8');
+        $document->loadXML($response);
+        return $this->xsl->transformToXml($document);
+    }
 }

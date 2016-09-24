@@ -8,19 +8,19 @@ define("AWS_ENDPOINT", "webservices.amazon.it");
 define("AWS_URI", "/onca/xml");
 
 $params = [
-	"Version" => AWS_VERSION,
-	"Service" => "AWSECommerceService",
-	"AWSAccessKeyId" => AWS_API_KEY,
-	"AssociateTag" => AWS_ASSOCIATE_TAG,
-	"Timestamp" => gmdate('Y-m-d\TH:i:s\Z')
+    "Version" => AWS_VERSION,
+    "Service" => "AWSECommerceService",
+    "AWSAccessKeyId" => AWS_API_KEY,
+    "AssociateTag" => AWS_ASSOCIATE_TAG,
+    "Timestamp" => gmdate('Y-m-d\TH:i:s\Z')
 ];
 
 $params_ItemSearch = [
-	"Operation" => "ItemSearch",
-	"SearchIndex" => "Electronics",
-	"Keywords" => "HTC",
-	"ResponseGroup" => "Offers,  Variations, VariationOffers, VariationMatrix, VariationSummary, VariationMinimum",
-	"Sort" => "relevancerank" // è quello di default di amazon
+    "Operation" => "ItemSearch",
+    "SearchIndex" => "Electronics",
+    "Keywords" => "HTC",
+    "ResponseGroup" => "Offers,  Variations, VariationOffers, VariationMatrix, VariationSummary, VariationMinimum",
+    "Sort" => "relevancerank" // è quello di default di amazon
 ];
 
 /**
@@ -75,17 +75,17 @@ $params_ItemSearch = [
  * <ParentASIN>B00UXMFDLQ</ParentASIN>
  */
 $params_ItemLookup = array(
-	"Operation" => "ItemLookup",
-	"IdType" => "ASIN",
-	"ItemId" => "B00UXMFDLQ",
-	"VariationPage" => "All",
-	"ResponseGroup" => "Large, VariationMatrix"
+    "Operation" => "ItemLookup",
+    "IdType" => "ASIN",
+    "ItemId" => "B00UXMFDLQ",
+    "VariationPage" => "All",
+    "ResponseGroup" => "Large, VariationMatrix"
 );
 
 $params_BrowseNodeLookup = array(
-	"Operation" => "BrowseNodeLookup",
-	"BrowseNodeId" => "2569674031",
-	"ResponseGroup" => "BrowseNodeInfo"
+    "Operation" => "BrowseNodeLookup",
+    "BrowseNodeId" => "2569674031",
+    "ResponseGroup" => "BrowseNodeInfo"
 );
 
 $params = array_merge($params, $params_ItemLookup);
@@ -93,7 +93,7 @@ ksort($params); // Sort the parameters by key
 
 $pairs = array();
 foreach ($params as $key => $value) {
-	array_push($pairs, rawurlencode($key)."=".rawurlencode($value));
+    array_push($pairs, rawurlencode($key)."=".rawurlencode($value));
 }
 
 // Generate the canonical query
@@ -120,32 +120,32 @@ exit();
 // PARSER XML
 $parsed_xml = simplexml_load_string($response);
 if($parsed_xml->OperationRequest->Errors) {
-	foreach($parsed_xml->OperationRequest->Errors->Error as $error){
-		echo "Error code: " . $error->Code . "\r\n";
-		echo $error->Message . "\r\n";
-		echo "\r\n";
-	}
+    foreach($parsed_xml->OperationRequest->Errors->Error as $error){
+        echo "Error code: " . $error->Code . "\r\n";
+        echo $error->Message . "\r\n";
+        echo "\r\n";
+    }
 }else{
-	printSearchResults($parsed_xml);
+    printSearchResults($parsed_xml);
 }
 
 function printSearchResults($parsed_xml){
-	$numOfItems = $parsed_xml->Items->TotalResults;
-	if($numOfItems>0){
-		print("<table>");
-		foreach($parsed_xml->Items->Item as $current) {
-			print("<td><font size='-1'><b>".$current->ItemAttributes->Title."</b>");
-			if(isset($current->ItemAttributes->Publisher)) {
-				print("<br>Publisher: ".$current->ItemAttributes->Publisher);
-			}
-			if(isset($current->Offers->Offer->OfferListing->Price->FormattedPrice)) {
-				print("<br>Price: ".$current->Offers->Offer->OfferListing->Price->FormattedPrice);
-				print(" from ".$current->Offers->Offer->Merchant->Name);
-			}
-		}
-	}else{
-		print("<center>No matches found.</center>");
-	}
+    $numOfItems = $parsed_xml->Items->TotalResults;
+    if($numOfItems>0){
+        print("<table>");
+        foreach($parsed_xml->Items->Item as $current) {
+            print("<td><font size='-1'><b>".$current->ItemAttributes->Title."</b>");
+            if(isset($current->ItemAttributes->Publisher)) {
+                print("<br>Publisher: ".$current->ItemAttributes->Publisher);
+            }
+            if(isset($current->Offers->Offer->OfferListing->Price->FormattedPrice)) {
+                print("<br>Price: ".$current->Offers->Offer->OfferListing->Price->FormattedPrice);
+                print(" from ".$current->Offers->Offer->Merchant->Name);
+            }
+        }
+    }else{
+        print("<center>No matches found.</center>");
+    }
 }
 
 ?>
