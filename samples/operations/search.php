@@ -3,9 +3,11 @@ require_once dirname(__FILE__).'/../bootstrap/CarghPAAPI.php';
 
 use CarghPAAPI\Operations;
 
-$search = new Operations\Search('Electronics');
+$category = isset($_GET['cat']) ? $_GET['cat'] : 'Electronics';
+$keywords = isset($_GET['q']) ? $_GET['q'] : 'htc';
+$search = new Operations\Search($category);
 $search
-    ->setKeywords('htc')
+    ->setKeywords($keywords)
     ->setSort('relevancerank'); // Amazon default Sort
 
 $xmlResponse = $CarghPAAPI->runOperation($search);

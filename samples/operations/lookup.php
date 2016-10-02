@@ -4,7 +4,10 @@ require_once dirname(__FILE__).'/../bootstrap/CarghPAAPI.php';
 use CarghPAAPI\Operations;
 
 $lookup = new Operations\Lookup();
-$lookup->setItemId('B00RD3X6IU');
+if(!isset($_GET['asin']))
+    $lookup->setItemId('B01E9WLATY');
+else
+    $lookup->setItemId($_GET['asin']);
 
 $xmlResponse = $CarghPAAPI->runOperation($lookup);
 
