@@ -28,25 +28,36 @@ class XmlToApiObject implements ResponseTransformerInterface
 
         if (isset($obj->Error)) {
             $R->error = true;
-            $R->results = (object)[];
-            $R->results->code = $obj->Error->Code;
-            $R->results->message = $obj->Error->Message;
+            $R->results = null;
+            $R->code = $obj->Error->Code;
+            $R->message = $obj->Error->Message;
             return $R;
         }
 
         if (isset($obj->Items->Request->Errors)) {
             $R->error = true;
-            $R->results = (object)[];
-            $R->results->code = $obj->Items->Request->Errors->Error->Code;
-            $R->results->message = $obj->Items->Request->Errors->Error->Message;
+            $R->results = null;
+            $R->code = $obj->Items->Request->Errors->Error->Code;
+            $R->message = $obj->Items->Request->Errors->Error->Message;
             return $R;
         }
         $R->error = false;
+        $R->code = null;
+        $R->message = null;
 
         $R->results = (object)[];
-        $R->results->items = [];
+        $R->results->total = $obj->Items->TotalResults;
+        $R->results->per_page = '10';
+
+        if(isset($obj->Items->Request->ItemSearchRequest->ItemPage))
+            $R->results->current_page = $obj->Items->Request->ItemSearchRequest->ItemPage;
+        else
+            $R->results->current_page = '1';
+
+        $R->results->last_page = $obj->Items->TotalPages;
+        $R->results->data = [];
         foreach ($obj->Items->Item as $item) {
-            array_push($R->results->items, $item);
+            array_push($R->results->data, $item);
         }
         return $R;
     }
