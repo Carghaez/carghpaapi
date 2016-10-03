@@ -55,10 +55,16 @@ class XmlToApiObject implements ResponseTransformerInterface
             $R->results->current_page = '1';
 
         $R->results->last_page = $obj->Items->TotalPages;
+
         $R->results->data = [];
-        foreach ($obj->Items->Item as $item) {
-            array_push($R->results->data, $item);
+        if (is_array($obj->Items->Item)) {
+            foreach ($obj->Items->Item as $item) {
+                array_push($R->results->data, $item);
+            }
+        } else {
+            array_push($R->results->data,  $obj->Items->Item);
         }
+
         return $R;
     }
 }
