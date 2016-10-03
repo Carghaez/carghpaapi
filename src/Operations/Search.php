@@ -137,8 +137,10 @@ class Search extends AbstractOperation
     private static $general_parameters = [
         'Availability',
         'BrowseNode',
+        'Condition',
         'Keywords',
         'ResponseGroup',
+        'MerchantId',
         'VariationPage'
     ];
 
@@ -154,7 +156,6 @@ class Search extends AbstractOperation
         'ItemPage',
         'Manufacturer',
         'MaximumPrice',
-        'MerchantId',
         'MinimumPrice',
         'MinPercentageOff',
         'Neighborhood',
@@ -174,7 +175,7 @@ class Search extends AbstractOperation
         // Defaults parameter
         $this
             ->setCategory($category)
-            ->setResponseGroup(['Large']);
+            ->setResponseGroup(['Large', 'Offers']);
     }
 
     /**

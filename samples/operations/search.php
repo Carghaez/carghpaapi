@@ -8,6 +8,10 @@ $keywords = isset($_GET['q']) ? $_GET['q'] : 'htc';
 $search = new Operations\Search($category);
 $search
     ->setKeywords($keywords)
+    ->setCondition('New')
+    ->setAvailability('Available')
+    ->setMinimumPrice('500')
+    ->setMerchantId('Amazon')
     ->setSort('relevancerank'); // Amazon default Sort
 
 $xmlResponse = $CarghPAAPI->runOperation($search);
