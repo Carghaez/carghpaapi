@@ -46,15 +46,23 @@ class XmlToApiObject implements ResponseTransformerInterface
         $R->message = null;
 
         $R->results = (object)[];
-        $R->results->total = $obj->Items->TotalResults;
+        $R->results->total = (isset($obj->Items->TotalResults))
+            ? $obj->Items->TotalResults
+            : '1';
         $R->results->per_page = '10';
 
-        if(isset($obj->Items->Request->ItemSearchRequest->ItemPage))
+        if (isset($obj->Items->Request->ItemSearchRequest)
+            && isset($obj->Items->Request->ItemSearchRequest->ItemPage)) {
             $R->results->current_page = $obj->Items->Request->ItemSearchRequest->ItemPage;
-        else
+        } else {
             $R->results->current_page = '1';
+        }
 
-        $R->results->last_page = $obj->Items->TotalPages;
+        if (isset($obj->Items->TotalPages)) {
+            $R->results->last_page = $obj->Items->TotalPages;
+        } else {
+            $R->results->last_page = '1';
+        }
 
         $R->results->data = [];
         if (is_array($obj->Items->Item)) {
