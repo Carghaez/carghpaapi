@@ -315,7 +315,7 @@ class Search extends AbstractOperation
      */
     public function setMinimumPrice($price)
     {
-        if(!$this->invalidParameter('price')) {
+        if(!$this->invalidParameter('MinimumPrice')) {
             $this->validatePrice($price);
             $this->parameters['MinimumPrice'] = $price;
         }
@@ -342,7 +342,7 @@ class Search extends AbstractOperation
      */
     public function setMaximumPrice($price)
     {
-        if(!$this->invalidParameter('price')) {
+        if(!$this->invalidParameter('MaximumPrice')) {
             $this->validatePrice($price);
             $this->parameters['MaximumPrice'] = $price;
         }
