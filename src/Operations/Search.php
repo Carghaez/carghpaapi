@@ -73,10 +73,7 @@ class Search extends AbstractOperation
                                     'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
                                     'MinimumPrice', 'MinPercentageOff', 'Neighborhood', 'Sort', 'Title'
                                 ],
-        'Toys'                  => [
-                                    'Author', 'Brand', 'ItemPage', 'Manufacturer', 'MaximumPrice',
-                                    'MinimumPrice', 'MinPercentageOff', 'Neighborhood', 'Sort', 'Title'
-                                ],
+        'Toys'                  => [ 'ItemPage', 'MinPercentageOff', 'Sort', 'Title'],
         'Jewelry'               => [ 'ItemPage', 'MinPercentageOff', 'Sort', 'Title'],
         'Lighting'              => [
                                     'Brand', 'ItemPage', 'MaximumPrice', 'MinimumPrice',
