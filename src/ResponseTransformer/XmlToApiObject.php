@@ -73,6 +73,10 @@ class XmlToApiObject implements ResponseTransformerInterface
             array_push($R->results->data,  $obj->Items->Item);
         }
 
+        if ($R->results->total == '1' && count($R->results->data) > 1) {
+          $R->results->total = count($R->results->data);
+        }
+
         return $R;
     }
 }
